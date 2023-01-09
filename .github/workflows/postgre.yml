@@ -29,8 +29,9 @@ jobs:
           - 5432:5432
 
     steps:
-      - run: cat /etc/docker/daemon.json
-      - run: docker ps
+      - run: |
+          cat /etc/docker/daemon.json
+          docker ps
       - run: echo "### hello world" >> $GITHUB_STEP_SUMMARY
       - name: Harden Runner
         uses: step-security/harden-runner@rc
