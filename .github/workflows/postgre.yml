@@ -37,6 +37,7 @@ jobs:
         uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
+          disable-telemetry: true
 #         allowed-endpoints: >
 #           postgres:5432 # PostgreSQL service container
       # Downloads a copy of the code in your repository before running CI tests
