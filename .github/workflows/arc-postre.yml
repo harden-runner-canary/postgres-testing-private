@@ -30,7 +30,6 @@ jobs:
 
     steps:
       - run: |
-          cat /etc/docker/daemon.json
           docker ps
       - run: echo "### hello world" >> $GITHUB_STEP_SUMMARY
       - name: Harden Runner
