@@ -30,8 +30,8 @@ jobs:
           - 5432:5432
 
     steps:
-      - run: |
-          docker ps
+      # - run: |
+          # docker ps
       - run: echo "### hello world" >> $GITHUB_STEP_SUMMARY
       - name: Harden Runner
         uses: h0x0er/harden-runner@k8s-detection
