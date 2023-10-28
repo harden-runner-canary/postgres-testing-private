@@ -34,7 +34,7 @@ jobs:
           # docker ps
       - run: echo "### hello world" >> $GITHUB_STEP_SUMMARY
       - name: Harden Runner
-        uses: step-security/harden-runner@rc-v2.6.1
+        uses: step-security/harden-runner@rc
         with:
           egress-policy: audit
 #         allowed-endpoints: >
