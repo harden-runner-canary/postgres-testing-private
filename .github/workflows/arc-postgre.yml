@@ -1,12 +1,25 @@
 name: ARC PostgreSQL Service Example
-on: [workflow_dispatch]
+run-name: ARC PostgreSQL Service Example-${{ inputs.WorkflowFileID }}
+
+
+on:
+  workflow_dispatch:
+    inputs:
+      RunnerLabel:
+        description: "Target ARC name used for runs-on in job"
+        required: true
+        default: "self-hosted"
+      WorkflowFileID:
+        description: "WorkflowID"
+        required: false
+        default: ""
 
 
 jobs:
   # Label of the runner jobb
   runner-job:
     # You must use a Linux environment when using service containers or container job
-    runs-on: self-hosted
+    runs-on: ${{ inputs.RunnerLabel }}
 
     # Service containers to run with `runner-job`
     services:
