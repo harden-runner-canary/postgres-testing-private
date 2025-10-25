@@ -73,12 +73,12 @@ jobs:
           POSTGRES_HOST: localhost
           # The default PostgreSQL port
           POSTGRES_PORT: 5432
+          
       - name: Compress tcpdump
         if: always()
         run: |
-          cd ${{ runner.temp }}
-          gzip dump-${{ runner.name }}.pcap || true
-          ls -lh dump-${{ runner.name }}.pcap || true
+          gzip ${{ runner.temp }}/dump-${{ runner.name }}.pcap
+          
       - name: Upload tcpdump
         if: always()
         uses: actions/upload-artifact@v4
