@@ -76,6 +76,7 @@ jobs:
           
       - name: Compress tcpdump
         if: always()
+        continue-on-error: true
         run: |
           gzip ${{ runner.temp }}/dump-${{ runner.name }}.pcap
           
@@ -86,3 +87,5 @@ jobs:
           name: dump-${{ runner.name }}
           path: ${{ runner.temp }}/dump-${{ runner.name }}.pcap.gz
           compression-level: 0
+          retention-days: 1
+          if-no-files-found: ignore
